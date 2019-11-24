@@ -36,6 +36,10 @@ return [
     */
 
     'guards' => [
+        'employer'=>[
+            'driver'=>'session',
+            'provider'=>'employers'
+        ],
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -70,7 +74,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        'employers'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Company::class,
+        ]
+        
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -99,6 +107,7 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        
     ],
 
     /*
