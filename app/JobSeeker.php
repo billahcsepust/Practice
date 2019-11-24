@@ -5,11 +5,11 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Company extends Authenticatable
+class JobSeeker extends Authenticatable
 {
     use Notifiable;
-    protected $guard='company';
+    protected $guard='JobSeeker';
     protected $fillable=[
-        'first_name','last_name','business_name','email',
+        'first_name','last_name','email',
     ];
 }

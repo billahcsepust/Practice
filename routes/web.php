@@ -14,7 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/employer', 'EmployerController@index');
 Route::get('/country','CountryController@index');
 Route::get('/country/create','CountryController@create');
 Route::post('/country/store','CountryController@store');
@@ -23,5 +22,4 @@ Route::put('/country/update/{id}',['uses'=>'CountryController@update','as'=>'cou
 Route::delete('/country/delete/{id}',['uses'=>'CountryController@destroy','as'=>'country-delete']);
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/company', 'CompanyController@index');

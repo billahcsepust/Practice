@@ -40,6 +40,10 @@ return [
             'driver'=>'session',
             'provider'=>'employers'
         ],
+        'JobSeeker'=>[
+            'driver'=>'session',
+            'provider'=>'JobSeekers'
+        ],
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -77,6 +81,10 @@ return [
         'employers'=>[
             'driver'=>'eloquent',
             'model'=>App\Company::class,
+        ],
+        'JobSeekers'=>[
+            'driver'=>'eloquent',
+            'model'=>App\JobSeeker::class,
         ]
         
         // 'users' => [

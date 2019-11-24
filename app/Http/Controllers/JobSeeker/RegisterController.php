@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\JobSeeker;
 
 use App\Http\Controllers\Controller;
-use App\Company;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\JobSeeker;
 
 class RegisterController extends Controller
 {
@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/company';
+    protected $redirectTo = '/JobSeeker';
 
     /**
      * Create a new controller instance.
@@ -38,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:company');
+        $this->middleware('guest:JobSeeker');
     }
 
     /**
@@ -48,15 +48,14 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     public function Index(){
-        return view('CompanyAuth.register',['url'=>'employer']);
+        return view('JobSeekerAuth.register',['url'=>'JobSeeker']);
     }
    
-    protected function createCompany(Request $request)
+    protected function createJobSeeker(Request $request)
     {
         return Validator::make($data, [
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'business_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
         ]);
     }
@@ -69,10 +68,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return Company::create([
+        return JobSeeker::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
-            'business_name' => $data['business_name'],
             'email' => $data['email'],
         ]);
     }
